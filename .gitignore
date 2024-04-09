@@ -1,0 +1,8 @@
+*.exe
+**/input
+**/output
+**.docx
+**.pdf
+**.zip
+hw3
+hw2
