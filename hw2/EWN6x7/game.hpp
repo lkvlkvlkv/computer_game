@@ -4,11 +4,13 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+enum {
+    RED = 0,
+    BLUE = 1
+};
+
 class Game {
 public:
-#define RED 0
-#define BLUE 1
-
     int n, m;
     int turn = 0;
     int id2number[2][6] = {{0, 1, 2, 3, 4, 5}, {6, 7, 8, 9, 10, 11}};
