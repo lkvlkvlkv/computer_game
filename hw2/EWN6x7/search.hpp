@@ -53,10 +53,10 @@ public:
     int evaluate(Game &game, int color) {
         if (game.isEnd()) {
             int winner = game.winner();
-            if (winner == RED) {
+            if (winner == 1) {
                 return INT_MAX;
             }
-            else if (winner == BLUE) {
+            else if (winner == 2) {
                 return INT_MIN;
             }
             else {
