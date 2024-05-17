@@ -46,7 +46,6 @@ private:
     bool isEmpty(int x, int y);
     bool redSurvice();
     bool blueSurvice();
-    void showValidMove();
 };
 
 #endif
