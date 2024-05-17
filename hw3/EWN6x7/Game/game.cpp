@@ -1,6 +1,7 @@
 #include "game.h"
-#include "../Player/player.h"
+
 #include "../Display/display.h"
+#include "../Player/player.h"
 using namespace std;
 
 int Game::dx[2][3] = {{0, 1, 1}, {0, -1, -1}};
@@ -9,6 +10,37 @@ int Game::dy[2][3] = {{1, 0, 1}, {-1, 0, -1}};
 Game::Game() {
     this->n = 6;
     this->m = 7;
+}
+
+Game &Game::operator=(const Game &rhs) {
+    if (this == &rhs) {
+        return *this;
+    }
+    this->n = rhs.n;
+    this->m = rhs.m;
+    this->turn = rhs.turn;
+    this->remain[RED] = rhs.remain[RED];
+    this->remain[BLUE] = rhs.remain[BLUE];
+    this->board = rhs.board;
+    this->position = rhs.position;
+    return *this;
+}
+
+bool Game::operator==(const Game &other) const {
+    if (n != other.n || m != other.m || turn != other.turn) {
+        return false;
+    }
+    if (remain[RED] != other.remain[RED] || remain[BLUE] != other.remain[BLUE]) {
+        return false;
+    }
+    if (board != other.board || position != other.position) {
+        return false;
+    }
+    return true;
+}
+
+bool Game::operator!=(const Game &other) const {
+    return !(*this == other);
 }
 
 void Game::initGame(bool by_input) {
@@ -101,7 +133,6 @@ void Game::inputBoard() {
     }
     return;
 }
-
 
 vector<array<int, 2>> Game::expand(int color) {
     vector<array<int, 2>> result;

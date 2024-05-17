@@ -11,6 +11,9 @@ using namespace std;
 class Game {
 public:
     Game();
+    Game & operator=(const Game &rhs);
+    bool operator==(const Game &other) const;
+    bool operator!=(const Game &other) const;
     void initGame(bool by_input = false);
     void fromBoard(vector<vector<int>> &board, vector<vector<int>> &position, int turn, int remain[2]);
     void startGame();
