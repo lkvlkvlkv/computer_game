@@ -7,6 +7,7 @@
 
 using namespace std;
 
+class Search;
 
 class Game {
 public:
@@ -23,17 +24,14 @@ public:
     int move(int id, int dir, int color);
     int undo(int id, int dir, int color, int original);
     vector<array<int, 2>> expand(int color);
-
-    int n, m;
-    vector<vector<int>> position;
-
     
 private:
-    Player* players[2];
-
+    int n, m;
     int turn;
     int remain[2];
     vector<vector<int>> board;
+    vector<vector<int>> position;
+    Player* players[2];
 
     static int dx[2][3];
     static int dy[2][3];
@@ -46,6 +44,9 @@ private:
     bool isEmpty(int x, int y);
     bool redSurvice();
     bool blueSurvice();
+
+    friend int Search::redScore(Game &game);
+    friend int Search::blueScore(Game &game);
 };
 
 #endif
