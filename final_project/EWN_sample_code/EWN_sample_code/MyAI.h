@@ -11,8 +11,8 @@
 using std::stoi;
 using std::string;
 
-#define RED 0
-#define BLUE 1
+// #define RED 0
+// #define BLUE 1
 #define BOARD_SIZE 5
 #define PIECE_NUM 6
 #define COMMAND_NUM 7
